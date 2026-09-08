@@ -1,0 +1,5 @@
+{
+  "name": "paired_involution_steps",
+  "context": "def pairedSteps {α : Type} (f : α → α) : Nat → α → α\n  | 0, x => x\n  | n + 1, x => pairedSteps f n (f (f x))",
+  "statement": "∀ (α : Type) (f : α → α), (∀ x, f (f x) = x) → ∀ (n : Nat) (x : α), pairedSteps f n x = x"
+}

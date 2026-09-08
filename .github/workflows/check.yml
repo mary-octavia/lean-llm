@@ -1,0 +1,43 @@
+name: Check Lean bridge
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: macos-14
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+
+      - name: Install the pinned Lean toolchain through elan
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSfL \
+            https://elan.lean-lang.org/elan-init.sh \
+            -o "$RUNNER_TEMP/elan-init.sh"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install "$(cat lean-toolchain)"
+
+      - name: Build the native Lean module
+        run: lake build Llm
+
+      - name: Run compiler, audit, cache, and sandbox checks
+        # Deterministic proposer callbacks only; no model calls or credentials.
+        run: python3 -m unittest test_bridge -v

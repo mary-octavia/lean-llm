@@ -1,0 +1,3 @@
+{
+  "proof": "intro α f hf n\ninduction n with\n| zero =>\n    intro x\n    rfl\n| succ n ih =>\n    intro x\n    change pairedSteps f n (f (f x)) = x\n    rw [hf x]\n    exact ih x"
+}
