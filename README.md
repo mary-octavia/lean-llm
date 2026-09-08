@@ -58,7 +58,7 @@ induction n with
     exact ih x
 ```
 
-This proves the stated cancellation property for arbitrary round counts. The successful development run used one live model proposal and three Lean checks, taking about 14 seconds. That timing describes one local run, not a general performance guarantee.
+This proves the stated cancellation property for arbitrary round counts. The successful development run used one live model proposal and three Lean checks, taking about 14 seconds, locally.
 
 Check the supplied proof without an LLM:
 
@@ -66,7 +66,7 @@ Check the supplied proof without an LLM:
 lake env lean examples/Verified.lean
 ```
 
-The example does not establish a polynomial algorithm for arbitrary SAT or settle P versus NP.
+The example does not establish a polynomial algorithm for arbitrary SAT or settle P versus NP. To do that, I'd recommend you:
 
 ## Bring your own proposition
 
@@ -101,7 +101,7 @@ Python callers can use `solve(request, cache_dir=..., proposer=...)`. A proposer
 - Checking processes have a deadline, a Lean memory limit, and a macOS sandbox. They have no network permission or filesystem writes. File-content reads are limited to temporary input, the toolchain, trusted compiled modules, and specified OS runtime paths.
 - Cached proofs are rechecked. Keys include the exact request and checker fingerprint. A damaged export is rebuilt from a freshly checked proof.
 
-The Lean installation, compiled libraries, Python driver, and operating system remain trusted components. The driver is not formally verified. This is a local research prototype, not an audited service for arbitrary hostile submissions.
+Lean checks the submitted proofs, while automated tests cover the orchestration, caching and error handling done by the Python driver. This is a research prototype meant to run locally.
 
 Cache lookup currently matches exact requests. A universal theorem covers all values quantified in its statement; automatically retrieving applicable lemmas for different statements is a further feature. No completeness or polynomial runtime claim is made for proof search.
 
