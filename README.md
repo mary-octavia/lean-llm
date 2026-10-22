@@ -82,6 +82,7 @@ LEAN_LLM_NATIVE_TESTS=1 PYTHONPATH=src python3 -m unittest discover -s tests -v
 python3 -m build
 cd web
 npm test
+npm run test:assets
 npm run build
 ```
 

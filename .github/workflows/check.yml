@@ -65,4 +65,7 @@ jobs:
           cache-dependency-path: web/package-lock.json
       - run: npm ci
       - run: npm test
+      - run: npm run test:assets
       - run: npm run build
+        env:
+          LEAN2LLM_ASSET_MIRROR: https://lean2llm.com/lean

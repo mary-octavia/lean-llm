@@ -20,7 +20,13 @@ The browser compiler is separate from the original native bridge's
 The compiler and core libraries use Apache-2.0. The asset-fetcher pins the upstream
 artifact version `62b6a2291302d4bbeace37642a066b7510d0145c-dlsym1-compact1`.
 
-`runtime-assets.sha256.json` lists all deployed core artifact hashes. `npm run
+`runtime-assets.sha256.json` lists all deployed core artifact hashes. CI sets
+`LEAN2LLM_ASSET_MIRROR=https://lean2llm.com/lean` to download these exact nine
+files from the first-party deployment. Every response is SHA256-checked before
+an atomic rename installs it; corrupt downloads and corrupt cached files fail
+the build. Without this setting, the pinned upstream fetcher bootstraps the
+assets, with the same first-party mirror as a fallback when upstream access
+fails (for example, an HTTP 403 from a CI network). `npm run
 assets:lean` fetches absent artifacts and verifies every hash. `npm run build`
 also runs this step, so a clean Vercel build receives the same pinned assets.
 Generated artifacts live under `public/lean` and are excluded from Git. The core

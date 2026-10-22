@@ -6,12 +6,13 @@ The web application lives in `web/`. The production Vercel project is `lean2llm`
 cd web
 npm ci
 npm test
+npm run test:assets
 npm run build
 cd ..
 npx vercel deploy --prod --yes --scope codestars-clothing --project lean2llm --verify
 ```
 
-The build downloads and validates the pinned browser compiler assets using `runtime-assets.sha256.json`. `vercel.json` supplies the isolation headers needed by the WebAssembly worker, static-file routes, and domain redirects. See `RUNTIME-PROVENANCE.md` for compiler revisions and licenses.
+The build downloads and validates the pinned browser compiler assets using `runtime-assets.sha256.json`. CI uses `LEAN2LLM_ASSET_MIRROR=https://lean2llm.com/lean` to avoid upstream download restrictions; each file still requires the expected SHA-256 digest. `vercel.json` supplies the isolation headers needed by the WebAssembly worker, static-file routes, and domain redirects. See `RUNTIME-PROVENANCE.md` for compiler revisions and licenses. Production deployment currently uses the CLI; the Vercel account's GitHub connection has not been configured for this repository.
 
 Before a release, rebuild the Python distributions, copy them and the standalone example bundle from `dist/` into `web/public/downloads/`, and copy the current paper PDF and source into `web/public/paper/main.pdf` and `main.tex`. Keep the published artifact manifest synchronized with the distributions.
 
