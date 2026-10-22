@@ -1,0 +1,189 @@
+{
+  "schema": "lean2llm.cloud-validation/v1",
+  "recorded_on": "2026-10-22",
+  "status": "database-policy-verified",
+  "project": {
+    "name": "Lean2LLM",
+    "reference": "ovttidsabezpbkswnlhf",
+    "url": "https://ovttidsabezpbkswnlhf.supabase.co",
+    "organization": "Codestars",
+    "plan": "Free",
+    "region": "us-west-2"
+  },
+  "migration": {
+    "path": "supabase/migrations/20261022185055_lean2llm_proof_library.sql",
+    "method": "dashboard SQL editor",
+    "applied_once": true,
+    "cli_history_registered": false
+  },
+  "rls_smoke": {
+    "path": "supabase/checks/proof_library_rls.sql",
+    "script_sha256": "d25215d5c56149c8333670f565c3f36b28289f70a7ea90a36761109d312e9197",
+    "method": "manual dashboard SQL execution",
+    "language": "SQL/PLpgSQL",
+    "passed": true,
+    "effective_test_role": "authenticated",
+    "checks": {
+      "jwt_subject_asserted": true,
+      "row_security_active": true,
+      "owner_select_allowed": true,
+      "owner_insert_allowed": true,
+      "owner_update_allowed": true,
+      "owner_delete_allowed": true,
+      "cross_owner_select_blocked": true,
+      "cross_owner_update_blocked": true,
+      "cross_owner_delete_blocked": true,
+      "foreign_owner_insert_rejected": true,
+      "ownership_transfer_update_rejected": true,
+      "second_subject_visibility_isolated": true
+    },
+    "fixtures": {
+      "auth_rows_remaining": 0,
+      "proof_rows_remaining": 0,
+      "fixture_subtransaction_rolled_back": true,
+      "outer_transaction_rolled_back": true
+    },
+    "scope": "Synthetic transaction-scoped Auth UUIDs and SQL-role JWT claims; no email, password, identity or outbound Auth request was created.",
+    "executed_script_sha256_before_header_update": "0f8b4bc35150726ae5dbe8f0ba9438465e9f1b4639c44c3c16ee314d3fd73538",
+    "header_update_note": "The header was updated to link this report after the initial run. Its executable SQL body is unchanged and passed again after the helper-permission migration.",
+    "post_helper_migration_regression": {
+      "passed": true,
+      "auth_rows_remaining": 0,
+      "proof_rows_remaining": 0
+    }
+  },
+  "live_api": {
+    "verified": true,
+    "status": "health-and-anonymous-access-smoke-passed",
+    "scope": "Auth health and anonymous proof-table access rejection; authenticated end-to-end synchronization remains pending.",
+    "auth_health": {
+      "path": "/auth/v1/health",
+      "http_status": 200,
+      "service": "GoTrue",
+      "passed": true
+    },
+    "anonymous_proof_select": {
+      "path": "/rest/v1/lean2llm_proofs?select=content_id&limit=1",
+      "http_status": 401,
+      "code": "42501",
+      "message": "permission denied for table lean2llm_proofs",
+      "expected_rejection": true,
+      "passed": true
+    },
+    "authenticated_sync_verified": false,
+    "authenticated_sync_status": "pending"
+  },
+  "production_cutover": {
+    "verified": true,
+    "status": "passed",
+    "deployment_id": "dpl_FEoyVK4dXLmeNkVx1bKoXBq8teGF",
+    "deployment_url": "https://lean2llm-n90t771u0-codestars-clothing.vercel.app",
+    "public_origin": "https://lean2llm.com",
+    "public_origin_http_status": 200,
+    "asset": {
+      "path": "/assets/index-ektZfMU4.js",
+      "http_status": 200,
+      "sha256": "b09d792599040ffc37deb8f201cdfcf8e21cde156e6360892e44e57a84d10faf",
+      "dedicated_project_reference_present": true,
+      "dedicated_publishable_key_matches_configuration": true,
+      "legacy_project_reference_absent": true
+    },
+    "scope": "Deployment readiness, public origin, and compiled Supabase configuration; authenticated browser sync and email delivery remain pending."
+  },
+  "smtp": {
+    "credentials_entered": false,
+    "delivery_verified": false,
+    "status": "unsaved form prepared; pending private owner credential entry",
+    "form_prepared": true,
+    "public_fields_prepared": true,
+    "settings_saved": false,
+    "password_field_empty": true
+  },
+  "sign_in_email_flow": {
+    "verified": false,
+    "status": "pending"
+  },
+  "legacy_shared_project": {
+    "clothing_tables_preserved": true,
+    "auth_users_preserved": true,
+    "cloud_rows_migrated": false,
+    "inventory_status": "count-query-completed",
+    "proof_table_preserved": true,
+    "inventory_method": "count-only SQL query",
+    "proof_rows_at_inventory": 0,
+    "proof_owners_at_inventory": 0,
+    "cloud_migration_required_at_inventory": false,
+    "auth_cleanup_status": "completed",
+    "redirect_cleanup": {
+      "removed_lean2llm_redirect_urls": 4,
+      "remaining_redirect_urls_at_validation": 0,
+      "dashboard_success_confirmed": true
+    },
+    "site_url": {
+      "value": "http://localhost:3000",
+      "preserved": true
+    },
+    "smtp_cleanup": {
+      "original_custom_smtp_enabled": false,
+      "validated_custom_smtp_enabled": false,
+      "configuration_changed": false,
+      "credentials_accessed": false,
+      "observed_state": "SMTP toggle off; Save changes disabled"
+    }
+  },
+  "auth_configuration": {
+    "site_url": "https://lean2llm.com",
+    "site_url_saved": true,
+    "redirect_origin_count": 4,
+    "redirect_origins_saved": true
+  },
+  "browser_smoke": {
+    "proof_library_opened": true,
+    "local_records_preserved_after_reload": 1,
+    "private_cloud_sign_in_ui_configured": true,
+    "authenticated_flow_verified": false,
+    "sign_in_delivery_verified": false
+  },
+  "helper_permissions": {
+    "migration_path": "supabase/migrations/20261022203951_restrict_auto_rls_helper_execute.sql",
+    "migration_sha256": "2a1d45cc0d5ba2b0ac24c0037ce7d74f5b99733fb4b31254073525721c0029d1",
+    "applied": true,
+    "method": "dashboard SQL editor",
+    "cli_history_registered": false,
+    "generated_with_cli": "2.121.0",
+    "function": "public.rls_auto_enable()",
+    "return_type": "event_trigger",
+    "security_definer": true,
+    "search_path": "pg_catalog",
+    "revoked_execute_from": [
+      "PUBLIC",
+      "anon",
+      "authenticated"
+    ],
+    "helper_preserved": true,
+    "event_trigger_preserved": true,
+    "verification": {
+      "path": "supabase/checks/automatic_rls.sql",
+      "script_sha256": "09df8f4478b59a270dd3fd0a14d3e097025e8b77d5202488e4c26cd3b02c13dd",
+      "anonymous_execute_revoked": true,
+      "authenticated_execute_revoked": true,
+      "automatic_rls_enabled": true,
+      "fixture_removed": true,
+      "transaction_rolled_back": true,
+      "fixture_table": "public.lean2llm_rls_trigger_smoke_20261022"
+    }
+  },
+  "security_advisor": {
+    "initial": {
+      "errors": 0,
+      "warnings": 2
+    },
+    "after_remediation": {
+      "errors": 0,
+      "warnings": 0,
+      "info": 0
+    },
+    "rerun_complete": true,
+    "scope": "Supabase dashboard Security Advisor schema linter."
+  }
+}
