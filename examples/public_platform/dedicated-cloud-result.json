@@ -88,7 +88,7 @@
       "dedicated_publishable_key_matches_configuration": true,
       "legacy_project_reference_absent": true
     },
-    "scope": "Deployment readiness, public origin, and compiled Supabase configuration; authenticated browser sync and email delivery remain pending."
+    "scope": "Deployment readiness, public origin, and compiled Supabase configuration verified. A subsequent sign-in email was delivered after enabling Neo external-app access; authenticated browser sync remains pending."
   },
   "smtp": {
     "credentials_entered": true,
@@ -104,9 +104,10 @@
       "password_field_hidden": true,
       "save_changes_disabled": true
     },
-    "delivery_verified": false,
-    "status": "saved configuration; both authorized sign-in tests rejected by SMTP authentication",
-    "failure": {
+    "delivery_verified": true,
+    "status": "saved configuration; third authorized sign-in test delivered after enabling Neo external-app access",
+    "next_step": "Request owner authorization for one fresh sign-in email to verify the deployed callback and authenticated proof synchronization.",
+    "last_authentication_failure": {
       "auth_log_time": "2026-10-22T14:11:25-07:00",
       "auth_endpoint": "POST /otp",
       "http_status": 500,
@@ -114,16 +115,20 @@
       "message": "5.7.8 Error: authentication failed:",
       "source": "Supabase Auth log"
     },
-    "next_step": "Owner must check the Neo SMTP credential and third-party mail access setting before another explicitly authorized delivery test."
+    "external_app_access": {
+      "enabled": true,
+      "explicitly_authorized": true,
+      "observed_menu_after_enable": "Configure 3rd party apps"
+    }
   },
   "sign_in_email_flow": {
     "verified": false,
-    "status": "failed-smtp-authentication",
-    "authorized_test_requests": 2,
-    "delivery_confirmed": false,
+    "status": "email-delivered-confirmation-redirect-returned-without-browser-session",
+    "authorized_test_requests": 3,
+    "delivery_confirmed": true,
     "authenticated_session_verified": false,
     "authenticated_sync_verified": false,
-    "scope": "Two separately user-authorized sign-in requests were attempted. Both returned HTTP 500 with SMTP 535 authentication rejection recorded in Auth logs. The second attempt also displayed Error sending confirmation email. The first request's preflight HTTP 200 does not establish delivery. No inbox confirmation, signed-in session or authenticated cloud synchronization was verified.",
+    "scope": "Three separately user-authorized sign-in requests were attempted. The first two failed with HTTP 500 and SMTP 535. After Neo external-app access was explicitly enabled, the third returned HTTP 200 and its confirmation email was observed in the Neo inbox. The clicked confirmation returned HTTP 303 with server sign-up/login events, but the application still displayed its signed-out UI. The cause is unproven. A signed-in browser session and authenticated cloud synchronization remain unverified.",
     "attempts": [
       {
         "attempt": 1,
@@ -164,6 +169,52 @@
           "source": "Supabase Auth log"
         },
         "ui_message": "Error sending confirmation email"
+      },
+      {
+        "attempt": 3,
+        "explicitly_authorized": true,
+        "external_app_access_enabled_before_request": true,
+        "request": {
+          "application_accepted": true,
+          "http_status_observed": true,
+          "auth_log_time": "2026-10-22T16:42:26-07:00",
+          "method": "POST",
+          "path": "/otp",
+          "http_status": 200
+        },
+        "ui_message": "Check your email for your private library sign-in link.",
+        "delivery": {
+          "verified": true,
+          "source": "Neo inbox message metadata",
+          "received_at": "2026-10-22T23:42:25Z",
+          "subject": "Confirm your email address",
+          "sender_name": "Lean2LLM",
+          "from": "octavia@octav.ai",
+          "to": "octavia@octav.ai"
+        },
+        "confirmation": {
+          "clicked": true,
+          "link_origin": "https://ovttidsabezpbkswnlhf.supabase.co",
+          "link_path": "/auth/v1/verify",
+          "query_parameter_names": [
+            "token",
+            "type",
+            "redirect_to"
+          ],
+          "auth_log_time": "2026-10-22T16:45:17-07:00",
+          "method": "GET",
+          "path": "/verify",
+          "http_status": 303,
+          "auth_log_events": [
+            "user signedup: request completed",
+            "login: Login"
+          ],
+          "browser_returned_to_application": true,
+          "browser_signed_in_ui_observed": false,
+          "browser_observation": "The returned tab displayed the Workbench. Opening Proof library still showed the email sign-in form.",
+          "diagnostic_scope": "No GET /user row appeared among the three inspected Auth log rows. This limited log sample does not establish the cause of the missing browser session.",
+          "root_cause_confirmed": false
+        }
       }
     ]
   },
@@ -206,7 +257,7 @@
     "local_records_preserved_after_reload": 1,
     "private_cloud_sign_in_ui_configured": true,
     "authenticated_flow_verified": false,
-    "sign_in_delivery_verified": false
+    "sign_in_delivery_verified": true
   },
   "helper_permissions": {
     "migration_path": "supabase/migrations/20261022203951_restrict_auto_rls_helper_execute.sql",
@@ -249,5 +300,44 @@
     },
     "rerun_complete": true,
     "scope": "Supabase dashboard Security Advisor schema linter."
+  },
+  "auth_callback_implementation": {
+    "status": "deployed; credential-free recovery and library return verified; fresh live email callback pending",
+    "redirect_path": "/auth/callback",
+    "eager_client_preserved": true,
+    "awaits_sdk_initialize_and_get_session": true,
+    "navigation_guard_during_callback_startup": true,
+    "safe_persistent_failure_ui": true,
+    "url_cleaned_after_initialization_settles": true,
+    "automatic_email_requests_added": false,
+    "frontend_tests": {
+      "passed": 29,
+      "files": 3,
+      "new_callback_tests": 10,
+      "scope": "Mocked SDK lifecycle and server-rendered callback UI; no new live sign-in request."
+    },
+    "production_build_passed": true,
+    "new_callback_deployed": true,
+    "new_callback_live_email_test_verified": false,
+    "production_redirect_allowed": true,
+    "existing_redirect_allowlist_pattern": "https://lean2llm.com/**",
+    "production_auth_configuration_changed": false,
+    "deployment": {
+      "id": "dpl_ZPAH8yioygaMnRtxRUtteRRdrnLN",
+      "url": "https://lean2llm-m9z60lgkx-codestars-clothing.vercel.app",
+      "public_origin": "https://lean2llm.com",
+      "ready_state": "READY"
+    },
+    "production_smoke": {
+      "callback_http_status": 200,
+      "credential_free_callback_showed_expected_recovery": true,
+      "return_button_url": "https://lean2llm.com/#library",
+      "existing_local_proofs_preserved": 1,
+      "script_path": "/assets/index-B8D21zS2.js",
+      "script_sha256": "c463c08906bc926d5bef55027c132bdc44a82529e0e6998843d995e2afc6c308",
+      "dedicated_project_in_bundle": true,
+      "old_project_absent": true,
+      "scope": "Credential-free recovery UI, clean library return and deployed configuration only. No additional sign-in email was requested."
+    }
   }
 }

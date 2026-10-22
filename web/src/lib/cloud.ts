@@ -1,8 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 import type { ProofRecord } from './proofs';
 import { importRecords } from './proofs';
+import { isAuthCallback } from './auth';
 const url=import.meta.env.VITE_SUPABASE_URL;
 const key=import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY;
+export const authCallbackAtStartup=typeof location!=='undefined'&&isAuthCallback(location.href);
 export const cloud=url&&key?createClient(url,key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
 export async function pushProofs(records:ProofRecord[]) {
   if(!cloud) throw new Error('Cloud sync is not configured for this deployment.');

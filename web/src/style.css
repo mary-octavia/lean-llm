@@ -6,3 +6,10 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:0s!important;transition:none!important}}
 .terminal-card>div>.icon-button{margin-left:auto;color:#7c989d;padding:0}.terminal-card>div>.icon-button:hover{color:#b7d8ca}
 .download-links{display:flex;flex-wrap:wrap;gap:8px;margin:17px 0 23px}.download-links a{display:flex;align-items:center;gap:7px;border:1px solid #d6dfd5;padding:8px 11px;font-size:9px;color:#5e8274;background:#f1f5ee}.download-links a:hover{background:#e6eee2}.download-links a span{font-family:var(--mono);font-size:7px;color:#91a18e}.paper-author>a{font-size:9px;display:block;margin-top:5px;color:#8a9f94}
+.auth-callback{min-height:65vh;max-width:760px;padding-top:80px}
+.auth-callback-card{margin-top:24px;padding:36px;border:1px solid #d6dfd5;background:#f1f5ee;color:#314a4c}
+.auth-callback-card>svg{color:#638b7d}
+.auth-callback-card h1{font-family:var(--serif);font-size:clamp(30px,5vw,46px);font-weight:400;line-height:1.15;margin:20px 0 16px}
+.auth-callback-card p{font-size:14px;line-height:1.7;max-width:540px;margin-bottom:24px}
+.cloud-panel .auth-error{border-left:2px solid #a16d52;padding-left:10px;color:#80543f}
+.site-header a[aria-disabled=true],.footer-brand[aria-disabled=true]{opacity:.5;cursor:wait}
