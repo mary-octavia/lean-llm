@@ -91,17 +91,47 @@
     "scope": "Deployment readiness, public origin, and compiled Supabase configuration; authenticated browser sync and email delivery remain pending."
   },
   "smtp": {
-    "credentials_entered": false,
+    "credentials_entered": true,
+    "credential_entry_source": "User reported saving the dedicated SMTP form; no private credential was inspected.",
+    "credentials_inspected": false,
+    "settings_saved": true,
+    "configuration_observed": {
+      "custom_smtp_enabled": true,
+      "sender": "octavia@octav.ai",
+      "username": "octavia@octav.ai",
+      "host": "smtp0001.neo.space",
+      "port": 465,
+      "password_field_hidden": true,
+      "save_changes_disabled": true
+    },
     "delivery_verified": false,
-    "status": "unsaved form prepared; pending private owner credential entry",
-    "form_prepared": true,
-    "public_fields_prepared": true,
-    "settings_saved": false,
-    "password_field_empty": true
+    "status": "saved configuration; authorized sign-in test rejected by SMTP authentication",
+    "failure": {
+      "auth_log_time": "2026-10-22T13:55:35-07:00",
+      "auth_endpoint": "POST /otp",
+      "http_status": 500,
+      "smtp_status": 535,
+      "message": "5.7.8 Error: authentication failed:",
+      "source": "Supabase Auth log"
+    },
+    "next_step": "Owner must check the Neo SMTP credential and third-party mail access setting before another explicitly authorized delivery test."
   },
   "sign_in_email_flow": {
     "verified": false,
-    "status": "pending"
+    "status": "failed-smtp-authentication",
+    "authorized_test_requests": 1,
+    "request": {
+      "gateway_log_time": "2026-10-22T13:55:32-07:00",
+      "method": "POST",
+      "path": "/auth/v1/otp",
+      "redirect_to": "https://lean2llm.com/#library",
+      "http_status": 500,
+      "preflight_http_status": 200
+    },
+    "delivery_confirmed": false,
+    "authenticated_session_verified": false,
+    "authenticated_sync_verified": false,
+    "scope": "One user-authorized sign-in request was attempted. HTTP 500 and the SMTP 535 Auth log establish authentication rejection by the mail provider; preflight HTTP 200 does not establish delivery. No inbox confirmation, signed-in session or authenticated cloud synchronization was verified."
   },
   "legacy_shared_project": {
     "clothing_tables_preserved": true,
