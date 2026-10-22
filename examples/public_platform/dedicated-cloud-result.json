@@ -105,9 +105,9 @@
       "save_changes_disabled": true
     },
     "delivery_verified": false,
-    "status": "saved configuration; authorized sign-in test rejected by SMTP authentication",
+    "status": "saved configuration; both authorized sign-in tests rejected by SMTP authentication",
     "failure": {
-      "auth_log_time": "2026-10-22T13:55:35-07:00",
+      "auth_log_time": "2026-10-22T14:11:25-07:00",
       "auth_endpoint": "POST /otp",
       "http_status": 500,
       "smtp_status": 535,
@@ -119,19 +119,53 @@
   "sign_in_email_flow": {
     "verified": false,
     "status": "failed-smtp-authentication",
-    "authorized_test_requests": 1,
-    "request": {
-      "gateway_log_time": "2026-10-22T13:55:32-07:00",
-      "method": "POST",
-      "path": "/auth/v1/otp",
-      "redirect_to": "https://lean2llm.com/#library",
-      "http_status": 500,
-      "preflight_http_status": 200
-    },
+    "authorized_test_requests": 2,
     "delivery_confirmed": false,
     "authenticated_session_verified": false,
     "authenticated_sync_verified": false,
-    "scope": "One user-authorized sign-in request was attempted. HTTP 500 and the SMTP 535 Auth log establish authentication rejection by the mail provider; preflight HTTP 200 does not establish delivery. No inbox confirmation, signed-in session or authenticated cloud synchronization was verified."
+    "scope": "Two separately user-authorized sign-in requests were attempted. Both returned HTTP 500 with SMTP 535 authentication rejection recorded in Auth logs. The second attempt also displayed Error sending confirmation email. The first request's preflight HTTP 200 does not establish delivery. No inbox confirmation, signed-in session or authenticated cloud synchronization was verified.",
+    "attempts": [
+      {
+        "attempt": 1,
+        "explicitly_authorized": true,
+        "request": {
+          "gateway_log_time": "2026-10-22T13:55:32-07:00",
+          "method": "POST",
+          "path": "/auth/v1/otp",
+          "redirect_to": "https://lean2llm.com/#library",
+          "http_status": 500,
+          "preflight_http_status": 200
+        },
+        "smtp_failure": {
+          "auth_log_time": "2026-10-22T13:55:35-07:00",
+          "auth_endpoint": "POST /otp",
+          "http_status": 500,
+          "smtp_status": 535,
+          "message": "5.7.8 Error: authentication failed:",
+          "source": "Supabase Auth log"
+        }
+      },
+      {
+        "attempt": 2,
+        "explicitly_authorized": true,
+        "configuration_reload_time": "2026-10-22T14:10:59-07:00",
+        "request": {
+          "auth_log_time": "2026-10-22T14:11:25-07:00",
+          "method": "POST",
+          "path": "/otp",
+          "http_status": 500
+        },
+        "smtp_failure": {
+          "auth_log_time": "2026-10-22T14:11:25-07:00",
+          "auth_endpoint": "POST /otp",
+          "http_status": 500,
+          "smtp_status": 535,
+          "message": "5.7.8 Error: authentication failed:",
+          "source": "Supabase Auth log"
+        },
+        "ui_message": "Error sending confirmation email"
+      }
+    ]
   },
   "legacy_shared_project": {
     "clothing_tables_preserved": true,
