@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lean2llm"
+version = "0.2.0"
+description = "Lean-checked proof proposals, searchable proof storage, and portable proof bundles"
+readme = "docs/library.md"
+requires-python = ">=3.11"
+authors = [{name = "Octavia Maria Sulea"}]
+keywords = ["lean", "proof", "llm", "formal-verification", "proof-cache"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.urls]
+Repository = "https://github.com/mary-octavia/lean-llm"
+Homepage = "https://lean2llm.com"
+
+[project.scripts]
+lean2llm = "lean_llm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lean_llm = ["_assets/*"]
+
+[tool.unittest]
+start-directory = "tests"

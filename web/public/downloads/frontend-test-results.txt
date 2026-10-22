@@ -1,0 +1,12 @@
+
+> lean2llm-web@0.1.0 test
+> vitest run src
+
+
+ RUN  v4.1.12 /Users/octavia/WORK/lean2llm-platform/web
+
+
+ Test Files  2 passed (2)
+      Tests  19 passed (19)
+   Start at  12:25:59
+   Duration  188ms (transform 72ms, setup 0ms, import 96ms, tests 12ms, environment 0ms)

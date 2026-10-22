@@ -1,0 +1,37 @@
+{
+  "schema": "lean2llm.browser-regression/v1",
+  "date": "2026-10-22",
+  "scope": "Observed through Chrome UI at http://localhost:5173; one browser session; no reload between the three checks. These examples are regression checks, not performance benchmarks or server attestations.",
+  "runtime_policy": "A fresh isolated Web Worker for every check; HTTP assets are cacheable; at most one fresh-worker retry for a runtime fault.",
+  "lean_commit": "62b6a2291302d4bbeace37642a066b7510d0145c",
+  "runtime_source_commit": "a8aed095534e67061e2626b94e8e69193099091d",
+  "sequence": [
+    {
+      "step": 1,
+      "input": "Bundled Two steps, one identity / paired_steps_identity",
+      "outcome": "verified",
+      "displayed_compile_seconds": "1.61",
+      "axiom_report": "'_private.0.paired_steps_identity' does not depend on any axioms"
+    },
+    {
+      "step": 2,
+      "statement": "False",
+      "proof": "exact True.intro",
+      "outcome": "rejected",
+      "displayed_compile_seconds": "1.51",
+      "diagnostic": "error: Type mismatch\n  True.intro\nhas type\n  True\nbut is expected to have type\n  False  (line 9, col 2)"
+    },
+    {
+      "step": 3,
+      "input": "Reload bundled Two steps, one identity in the example picker, without reloading the page",
+      "outcome": "verified",
+      "displayed_compile_seconds": "0.69",
+      "axiom_report": "'_private.0.paired_steps_identity' does not depend on any axioms"
+    }
+  ],
+  "unit_tests": {
+    "files": 2,
+    "passed": 19,
+    "log": "frontend-test-results.txt"
+  }
+}

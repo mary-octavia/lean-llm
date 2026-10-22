@@ -1,0 +1,35 @@
+test_actual_kernel_accepts_fixed_statement (test_native.NativeTests.test_actual_kernel_accepts_fixed_statement) ... skipped 'Set LEAN_LLM_NATIVE_TESTS=1 for real Lean checks'
+test_forged_import_status_requires_and_fails_real_native_recheck (test_native.NativeTests.test_forged_import_status_requires_and_fails_real_native_recheck) ... skipped 'Set LEAN_LLM_NATIVE_TESTS=1 for real Lean checks'
+test_native_audit_rejects_transitive_custom_axiom (test_native.NativeTests.test_native_audit_rejects_transitive_custom_axiom) ... skipped 'Set LEAN_LLM_NATIVE_TESTS=1 for real Lean checks'
+test_original_proposer_feedback_and_vault_reuse (test_native.NativeTests.test_original_proposer_feedback_and_vault_reuse) ... skipped 'Set LEAN_LLM_NATIVE_TESTS=1 for real Lean checks'
+test_rejected_recheck_clears_prior_local_status (test_native.NativeTests.test_rejected_recheck_clears_prior_local_status) ... skipped 'Set LEAN_LLM_NATIVE_TESTS=1 for real Lean checks'
+test_standalone_export_replays_without_importing_installed_package (test_native.NativeTests.test_standalone_export_replays_without_importing_installed_package) ... skipped 'Set LEAN_LLM_NATIVE_TESTS=1 for real Lean checks'
+test_store_check_changes_unresolved_identity_and_rechecks_hits (test_native.NativeTests.test_store_check_changes_unresolved_identity_and_rechecks_hits) ... skipped 'Set LEAN_LLM_NATIVE_TESTS=1 for real Lean checks'
+test_wrong_proof_and_placeholders_are_rejected (test_native.NativeTests.test_wrong_proof_and_placeholders_are_rejected) ... skipped 'Set LEAN_LLM_NATIVE_TESTS=1 for real Lean checks'
+test_certificate_paths_cannot_escape_bundle (test_store.CertificateTests.test_certificate_paths_cannot_escape_bundle) ... ok
+test_certificate_toolchain_symlink_cannot_read_outside_bundle (test_store.CertificateTests.test_certificate_toolchain_symlink_cannot_read_outside_bundle) ... ok
+test_integrity_is_explicitly_distinct_from_proof_verification (test_store.CertificateTests.test_integrity_is_explicitly_distinct_from_proof_verification) ... ok
+test_tampered_certificate_is_rejected (test_store.CertificateTests.test_tampered_certificate_is_rejected) ... ok
+test_verifier_requires_explicit_matching_hash (test_store.CertificateTests.test_verifier_requires_explicit_matching_hash) ... ok
+test_bundle_duplicate_entries_are_rejected (test_store.StoreTests.test_bundle_duplicate_entries_are_rejected) ... ok
+test_bundle_expanded_size_limit (test_store.StoreTests.test_bundle_expanded_size_limit) ... ok
+test_bundle_round_trip_resets_imported_status (test_store.StoreTests.test_bundle_round_trip_resets_imported_status) ... ok
+test_bundle_symlink_is_rejected (test_store.StoreTests.test_bundle_symlink_is_rejected) ... ok
+test_bundle_tampering_is_rejected (test_store.StoreTests.test_bundle_tampering_is_rejected) ... ok
+test_bundle_traversal_is_rejected_before_extracting (test_store.StoreTests.test_bundle_traversal_is_rejected_before_extracting) ... ok
+test_canonical_strings_reject_unpaired_unicode_surrogates (test_store.StoreTests.test_canonical_strings_reject_unpaired_unicode_surrogates) ... ok
+test_cli_store_search_show_and_export_without_lean (test_store.StoreTests.test_cli_store_search_show_and_export_without_lean) ... ok
+test_content_id_is_deterministic_and_metadata_changes_it (test_store.StoreTests.test_content_id_is_deterministic_and_metadata_changes_it) ... ok
+test_content_numbers_are_lossless_safe_integers (test_store.StoreTests.test_content_numbers_are_lossless_safe_integers) ... ok
+test_database_content_tampering_is_detected_on_read (test_store.StoreTests.test_database_content_tampering_is_detected_on_read) ... ok
+test_exact_lookup_rejects_changed_context_statement_and_toolchain (test_store.StoreTests.test_exact_lookup_rejects_changed_context_statement_and_toolchain) ... ok
+test_external_verified_flag_is_discarded (test_store.StoreTests.test_external_verified_flag_is_discarded) ... ok
+test_fts_finds_title_statement_and_tags (test_store.StoreTests.test_fts_finds_title_statement_and_tags) ... ok
+test_import_never_executes_a_bundled_verifier (test_store.StoreTests.test_import_never_executes_a_bundled_verifier) ... ok
+test_packaged_assets_exist_and_restore_altered_inputs (test_store.StoreTests.test_packaged_assets_exist_and_restore_altered_inputs) ... ok
+test_source_must_match_exact_goal_even_if_attacker_rehashes (test_store.StoreTests.test_source_must_match_exact_goal_even_if_attacker_rehashes) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.098s
+
+OK (skipped=8)

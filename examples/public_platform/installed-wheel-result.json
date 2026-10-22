@@ -1,0 +1,17 @@
+{
+  "command": "LEAN_LLM_NATIVE_TESTS=1 LEAN_LLM_TOOLCHAIN=<pinned-distribution-root> <isolated-venv>/bin/python -I -m unittest discover -s /path/to/repo/tests -v",
+  "environment": {
+    "python": "3.13.3",
+    "lean_pin": "leanprover/lean4:v4.33.1",
+    "cwd": "outside repository",
+    "isolated": true,
+    "installed_distribution": "lean2llm==0.2.0"
+  },
+  "tests": 30,
+  "native_tests": 8,
+  "storage_integrity_tests": 22,
+  "elapsed_seconds": 35.274,
+  "result": "PASS",
+  "model_calls": 0,
+  "log": "examples/public_platform/installed-wheel-tests.txt"
+}

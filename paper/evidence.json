@@ -1,0 +1,142 @@
+{
+  "schema": "lean2llm.paper-evidence/v1",
+  "inspected_on": "2026-10-22",
+  "results": [
+    {
+      "id": "inherited-bridge-tests",
+      "kind": "historical-record",
+      "repository": "https://github.com/mary-octavia/lean-llm",
+      "revision": "a409e42c806426f6f26ad76787fcebf902898d78",
+      "path": "examples/test-results.txt",
+      "tests_passed": 29,
+      "elapsed_seconds": 186.933,
+      "rerun_for_this_manuscript": false
+    },
+    {
+      "id": "inherited-live-induction",
+      "kind": "repository-description",
+      "repository": "https://github.com/mary-octavia/lean-llm",
+      "revision": "a409e42c806426f6f26ad76787fcebf902898d78",
+      "path": "README.md",
+      "model_proposals": 1,
+      "lean_checks": 3,
+      "elapsed_seconds_approximate": 14,
+      "rerun_for_this_manuscript": false
+    },
+    {
+      "id": "inherited-standalone-replay",
+      "kind": "historical-record",
+      "repository": "https://github.com/mary-octavia/navier-stokes-proof",
+      "revision": "3b01518b6e33ab99b36a582219aa5c605be5268a",
+      "paths": [
+        "navier-stokes-standalone/verification.log",
+        "navier-stokes-standalone/verification-result.json"
+      ],
+      "started_at_utc": "2026-09-12T22:21:29.148111+00:00",
+      "kernel_declarations": 94719,
+      "formal_targets": 2,
+      "elapsed_seconds": 580.518,
+      "exit_code": 0,
+      "rerun_for_this_manuscript": false
+    }
+  ],
+  "new_library_results": [
+    {
+      "command": "LEAN_LLM_NATIVE_TESTS=1 LEAN_LLM_TOOLCHAIN=<pinned-distribution-root> <isolated-venv>/bin/python -I -m unittest discover -s /path/to/repo/tests -v",
+      "environment": {
+        "python": "3.13.3",
+        "lean_pin": "leanprover/lean4:v4.33.1",
+        "cwd": "outside repository",
+        "isolated": true,
+        "installed_distribution": "lean2llm==0.2.0"
+      },
+      "tests": 30,
+      "native_tests": 8,
+      "storage_integrity_tests": 22,
+      "elapsed_seconds": 35.274,
+      "result": "PASS",
+      "model_calls": 0,
+      "log": "examples/public_platform/installed-wheel-tests.txt",
+      "artifact_path": "examples/public_platform/installed-wheel-result.json"
+    },
+    {
+      "browser_id": "1a68e28ec0cc9ddda99901eb62f16d3744d4570ad4344dec02017a32a4b32433",
+      "native_id": "0462cfd8ef03b3d0ad7654d25b0d248540672a8795973431642d6c19948e9909",
+      "native_check_accepted": true,
+      "imported_status": "unverified",
+      "native_status": "verified",
+      "lean_checks": 2,
+      "model_calls": 0,
+      "native_toolchain": {
+        "pin": "leanprover/lean4:v4.33.1",
+        "fingerprint": "20ea51a3e4ecd6c2ed0d07dcba2c22611b11dea07cb3e657924127fb2f973fc6"
+      },
+      "result": "PASS",
+      "artifact_path": "examples/public_platform/browser-interop-result.json"
+    },
+    {
+      "status": "integrity-checked",
+      "scope": "manifest and referenced file hashes",
+      "files": 9,
+      "toolchain_pin": "leanprover/lean4:v4.34.0-rc2",
+      "source": {
+        "url": "https://github.com/openai/NavierStokesAndEuler",
+        "commit": "f9e8bc5b38b6e212696e8a30e3e91517af887bbd"
+      },
+      "result": "PASS",
+      "verifier_executed": false,
+      "model_calls": 0,
+      "artifact_path": "examples/public_platform/navier-template-integrity-result.json"
+    },
+    {
+      "contradictory_report_rejected": true,
+      "wrong_theorem_rejected": true,
+      "run_elab_rejected": true,
+      "safe_integer_unicode_hash_interop": true,
+      "imported_status": "unverified",
+      "id": "12157dbc9fcd41f2bbc5cc4816ea67a3601ef9b250ba9caad19bd1173e708ce8",
+      "result": "PASS",
+      "artifact_path": "examples/public_platform/predeploy-audit-result.json"
+    }
+  ],
+  "note": "New implementation results must be recorded separately with the actual command and output. Historical records are not fresh measurements.",
+  "browser_regression": {
+    "schema": "lean2llm.browser-regression/v1",
+    "date": "2026-10-22",
+    "scope": "Observed through Chrome UI at http://localhost:5173; one browser session; no reload between the three checks. These examples are regression checks, not performance benchmarks or server attestations.",
+    "runtime_policy": "A fresh isolated Web Worker for every check; HTTP assets are cacheable; at most one fresh-worker retry for a runtime fault.",
+    "lean_commit": "62b6a2291302d4bbeace37642a066b7510d0145c",
+    "runtime_source_commit": "a8aed095534e67061e2626b94e8e69193099091d",
+    "sequence": [
+      {
+        "step": 1,
+        "input": "Bundled Two steps, one identity / paired_steps_identity",
+        "outcome": "verified",
+        "displayed_compile_seconds": "1.61",
+        "axiom_report": "'_private.0.paired_steps_identity' does not depend on any axioms"
+      },
+      {
+        "step": 2,
+        "statement": "False",
+        "proof": "exact True.intro",
+        "outcome": "rejected",
+        "displayed_compile_seconds": "1.51",
+        "diagnostic": "error: Type mismatch\n  True.intro\nhas type\n  True\nbut is expected to have type\n  False  (line 9, col 2)"
+      },
+      {
+        "step": 3,
+        "input": "Reload bundled Two steps, one identity in the example picker, without reloading the page",
+        "outcome": "verified",
+        "displayed_compile_seconds": "0.69",
+        "axiom_report": "'_private.0.paired_steps_identity' does not depend on any axioms"
+      }
+    ],
+    "unit_tests": {
+      "files": 2,
+      "passed": 19,
+      "log": "frontend-test-results.txt"
+    },
+    "artifact_path": "web/public/downloads/browser-recovery-regression.json",
+    "unit_test_log": "web/public/downloads/frontend-test-results.txt"
+  }
+}

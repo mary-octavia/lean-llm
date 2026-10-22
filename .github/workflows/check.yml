@@ -41,3 +41,28 @@ jobs:
       - name: Run compiler, audit, cache, and sandbox checks
         # Deterministic proposer callbacks only; no model calls or credentials.
         run: python3 -m unittest test_bridge -v
+
+      - name: Test the installable library with native Lean
+        run: LEAN_LLM_NATIVE_TESTS=1 PYTHONPATH=src python3 -m unittest discover -s tests -v
+
+      - name: Build Python distributions
+        run: |
+          python3 -m pip install build
+          python3 -m build
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build

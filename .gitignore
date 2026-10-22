@@ -3,3 +3,16 @@ __pycache__/
 cache/
 *.olean
 *.ilean
+dist/
+build/
+*.egg-info/
+.venv/
+.env*
+.vercel/
+node_modules/
+web/public/lean/
+web/dist/
+proofs.sqlite3*
+*.proof.zip
+!web/public/downloads/*.proof.zip
+supabase/.temp/

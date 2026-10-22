@@ -1,0 +1,14 @@
+{
+  "natural-identity.proof.zip": {
+    "sha256": "296ddc5d8e7664c88d67ffb67ea6d29b42e40de30272b52970e5160e9799becf",
+    "bytes": 12445
+  },
+  "lean2llm-0.2.0.tar.gz": {
+    "sha256": "49c18547f566fca12aba5c0c41b8bd4cee186cec20aed77902c4f396d0ed541b",
+    "bytes": 29911
+  },
+  "lean2llm-0.2.0-py3-none-any.whl": {
+    "sha256": "e3344eef308cca71677acfdc3108416c572a757b4e74975c74ea161c005f84be",
+    "bytes": 29168
+  }
+}

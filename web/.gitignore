@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vercel/
+.env*
+!.env.example
+public/lean/
+*.tsbuildinfo
+browser-golden-record.json

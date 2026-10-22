@@ -1,0 +1,31 @@
+{
+  "schema": "lean2llm.proof/v1",
+  "id": "a34f330bfffcbbb0733cff29abe74457edb7c0695ac9bb986c15c9241b7dcc4a",
+  "content": {
+    "title": "Natural-number identity",
+    "tags": [
+      "equality",
+      "nat"
+    ],
+    "request": {
+      "name": "natural_identity",
+      "context": "",
+      "statement": "∀ n : Nat, n = n"
+    },
+    "proof": "intro n\nrfl\n",
+    "source": "import Llm\n\nnamespace LlmGenerated\n\n\n\ntheorem target :\n  ∀ n : Nat, n = n := by\n  intro n\n  rfl\n\naudit_llm target\n\nend LlmGenerated\n",
+    "backend": "lean-tactic",
+    "toolchain": {
+      "pin": "leanprover/lean4:v4.33.1",
+      "fingerprint": "20ea51a3e4ecd6c2ed0d07dcba2c22611b11dea07cb3e657924127fb2f973fc6"
+    },
+    "metadata": {}
+  },
+  "verification": {
+    "status": "verified",
+    "scope": "fixed-statement Lean kernel check and transitive axiom audit",
+    "checked_at": "2026-10-22T19:03:16.455386+00:00",
+    "diagnostics": "LLM_AUDIT_OK LlmGenerated.target\n",
+    "checker_fingerprint": "20ea51a3e4ecd6c2ed0d07dcba2c22611b11dea07cb3e657924127fb2f973fc6"
+  }
+}

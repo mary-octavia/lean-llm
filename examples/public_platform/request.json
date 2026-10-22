@@ -1,0 +1,5 @@
+{
+  "name": "natural_identity",
+  "context": "",
+  "statement": "∀ n : Nat, n = n"
+}

@@ -1,0 +1,26 @@
+{
+  "status": "draft-for-author-review",
+  "title": "Lean2LLM: Rechecked Proof Search and Portable Proof Storage for Lean",
+  "authors": [
+    {
+      "name": "Octavia Sulea",
+      "email": "octavia@octav.ai"
+    }
+  ],
+  "suggested_primary_category": "cs.LO",
+  "suggested_cross_lists": [
+    "cs.AI",
+    "cs.SE"
+  ],
+  "comments": "Research prototype; source, reproducibility artifacts and proof-library implementation accompany the manuscript.",
+  "abstract_file": "abstract.txt",
+  "source_file": "../main.tex",
+  "repository": "https://github.com/mary-octavia/lean-llm",
+  "project_url": "https://lean2llm.com",
+  "submission_license": null,
+  "author_email": "octavia@octav.ai",
+  "orcid": null,
+  "doi": null,
+  "arxiv_id": null,
+  "submission_note": "Prepared locally. The author must review content, categories, license and contact information before public submission."
+}

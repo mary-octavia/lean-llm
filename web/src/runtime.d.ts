@@ -1,0 +1,1 @@
+declare module '@live-codes/lean-wasm' { export function createCompiler(options:{baseUrl:string;signal?:AbortSignal;syntaxCheck?:string;onProgress?:(message:string)=>void;onStatus?:(message:string)=>void}):Promise<{run:(source:string)=>Promise<{output:string;errors:string[];exitCode:number;compileMs?:number;runtimeError?:string}>;dispose:()=>void}>; }

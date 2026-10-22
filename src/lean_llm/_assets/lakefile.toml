@@ -1,0 +1,7 @@
+name = "lean_llm"
+version = "0.1.0"
+defaultTargets = ["Llm"]
+
+[[lean_lib]]
+name = "Llm"
+roots = ["Llm"]

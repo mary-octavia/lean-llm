@@ -1,0 +1,13 @@
+{
+  "command": "PYTHONPATH=src LEAN_LLM_NATIVE_TESTS=1 LEAN_LLM_TOOLCHAIN=<pinned-distribution-root> python3 -m unittest discover -s tests -v",
+  "python": "3.13.3",
+  "lean_pin": "leanprover/lean4:v4.33.1",
+  "native_opt_in": "LEAN_LLM_NATIVE_TESTS=1",
+  "tests": 30,
+  "native_tests": 8,
+  "storage_integrity_tests": 22,
+  "elapsed_seconds": 45.997,
+  "result": "PASS",
+  "model_calls": 0,
+  "log": "examples/public_platform/test-results.txt"
+}

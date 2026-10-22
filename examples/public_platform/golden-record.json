@@ -1,0 +1,31 @@
+{
+  "schema": "lean2llm.proof/v1",
+  "id": "0d955b50bf05f78434757f9d06f25c1d28ff7953541a97f92de329a5d4c07438",
+  "content": {
+    "title": "Réflexivité • 自然数",
+    "tags": [
+      "nat",
+      "équality"
+    ],
+    "request": {
+      "name": "natural_identity",
+      "context": "",
+      "statement": "∀ n : Nat, n = n"
+    },
+    "proof": "intro n\nrfl",
+    "source": "import Llm\n\nnamespace LlmGenerated\n\n\n\ntheorem target :\n  ∀ n : Nat, n = n := by\n  intro n\n  rfl\n\naudit_llm target\n\nend LlmGenerated\n",
+    "backend": "lean-tactic",
+    "toolchain": {
+      "pin": "leanprover/lean4:v4.33.1",
+      "fingerprint": "cross-language-fixture"
+    },
+    "metadata": {}
+  },
+  "verification": {
+    "status": "unverified",
+    "scope": "none",
+    "checked_at": null,
+    "diagnostics": "Awaiting a local native check",
+    "checker_fingerprint": null
+  }
+}

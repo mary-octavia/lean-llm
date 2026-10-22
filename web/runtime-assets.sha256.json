@@ -1,0 +1,11 @@
+{
+  "lean-wasm/core-layer.json": "ff5146fffcaf09db2693c57842fe9828213d70c715418571f5330e2063647910",
+  "lean-wasm/core-lib/artifacts-000.pack": "69822644e0f084c38262d2984f9fdbf21d00f402f8b3cb695d8608bae3a1c96f",
+  "lean-wasm/core-lib/artifacts-001.pack": "19cf2b5f4b9bd30331e6f874ad9dc04d63eb2eb2983de7711194d458862b6ae6",
+  "lean-wasm/core-lib/artifacts-002.pack": "4937966f81105b48c306a05d76937a3823a2ccfe8fa4fc657d4c261bec21bbf1",
+  "lean-wasm/core-lib/artifacts-003.pack": "6b2ea32efe4b89a6049c50507054c8ecb472a084f81029151d3ab14cf8a5cf2c",
+  "lean-wasm/core-lib/artifacts-004.pack": "49be717d1cc641abaa5688bd1a72a771548f2af9c27e0132f7886d04e4c8d4c6",
+  "lean-wasm/lean.js": "63aa7b004435f3d90cf19d7c3b3e3284726701ea06da8bc70b015125e1a38b24",
+  "lean-wasm/lean.js.gz": "55eeb142840a39193e5938c392e9794608797d64880a250ed66dbc9df0b55377",
+  "lean-wasm/lean.wasm.gz": "863330db33be7a3eed4dafb28a592a0c7819468398cad2a9ac277863582e041e"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "lean2llm-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "node scripts/prepare-lean-assets.mjs && tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run src",
+    "assets:lean": "node scripts/prepare-lean-assets.mjs"
+  },
+  "dependencies": {
+    "@codemirror/language": "^6.11.3",
+    "@live-codes/lean-wasm": "file:vendor/lean-wasm",
+    "@supabase/supabase-js": "2.118.0",
+    "@uiw/react-codemirror": "^4.25.2",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.9",
+    "vitest": "^4.1.12"
+  }
+}
