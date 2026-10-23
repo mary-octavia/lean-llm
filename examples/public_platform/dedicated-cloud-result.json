@@ -1,7 +1,7 @@
 {
   "schema": "lean2llm.cloud-validation/v1",
   "recorded_on": "2026-10-22",
-  "status": "database-policy-verified",
+  "status": "database-policy-and-authenticated-browser-flow-verified",
   "project": {
     "name": "Lean2LLM",
     "reference": "ovttidsabezpbkswnlhf",
@@ -88,7 +88,7 @@
       "dedicated_publishable_key_matches_configuration": true,
       "legacy_project_reference_absent": true
     },
-    "scope": "Deployment readiness, public origin, and compiled Supabase configuration verified. A subsequent sign-in email was delivered after enabling Neo external-app access; authenticated browser sync remains pending."
+    "scope": "Deployment readiness and compiled configuration verified. Subsequent authorized browser testing confirmed email delivery, sign-in, public demo proof sync and retrieval, session persistence after reload, and a fresh Lean check."
   },
   "smtp": {
     "credentials_entered": true,
@@ -105,8 +105,7 @@
       "save_changes_disabled": true
     },
     "delivery_verified": true,
-    "status": "saved configuration; third authorized sign-in test delivered after enabling Neo external-app access",
-    "next_step": "Request owner authorization for one fresh sign-in email to verify the deployed callback and authenticated proof synchronization.",
+    "status": "delivery verified after enabling Neo external-app access; fourth authorized sign-in test established a browser session",
     "last_authentication_failure": {
       "auth_log_time": "2026-10-22T14:11:25-07:00",
       "auth_endpoint": "POST /otp",
@@ -122,13 +121,13 @@
     }
   },
   "sign_in_email_flow": {
-    "verified": false,
-    "status": "email-delivered-confirmation-redirect-returned-without-browser-session",
-    "authorized_test_requests": 3,
+    "verified": true,
+    "status": "email-sign-in-and-public-demo-sync-verified",
+    "authorized_test_requests": 4,
     "delivery_confirmed": true,
-    "authenticated_session_verified": false,
-    "authenticated_sync_verified": false,
-    "scope": "Three separately user-authorized sign-in requests were attempted. The first two failed with HTTP 500 and SMTP 535. After Neo external-app access was explicitly enabled, the third returned HTTP 200 and its confirmation email was observed in the Neo inbox. The clicked confirmation returned HTTP 303 with server sign-up/login events, but the application still displayed its signed-out UI. The cause is unproven. A signed-in browser session and authenticated cloud synchronization remain unverified.",
+    "authenticated_session_verified": true,
+    "authenticated_sync_verified": true,
+    "scope": "Four separately authorized sign-in requests: the first two failed with SMTP 535; the third delivered and verified server-side but did not show a browser session. After deploying /auth/callback, the fourth email established the signed-in UI, a clean library URL and a session surviving reload. One public demo was synced, one valid cloud record retrieved, and the preserved local demo was freshly checked by Lean. No private proof or local record was deleted. Retrieval merged with an existing local record; clean-device restoration was not tested.",
     "attempts": [
       {
         "attempt": 1,
@@ -215,6 +214,52 @@
           "diagnostic_scope": "No GET /user row appeared among the three inspected Auth log rows. This limited log sample does not establish the cause of the missing browser session.",
           "root_cause_confirmed": false
         }
+      },
+      {
+        "attempt": 4,
+        "explicitly_authorized": true,
+        "request": {
+          "application_accepted": true,
+          "http_status_observed": false,
+          "redirect_to": "https://lean2llm.com/auth/callback"
+        },
+        "delivery": {
+          "verified": true,
+          "source": "Neo inbox message metadata",
+          "received_at": "2026-10-23T00:01:16Z",
+          "subject": "Your sign-in link",
+          "sender_name": "Lean2LLM",
+          "from": "octavia@octav.ai",
+          "to": "octavia@octav.ai"
+        },
+        "confirmation": {
+          "clicked": true,
+          "signed_in_account": "octavia@octav.ai",
+          "browser_signed_in_ui_observed": true,
+          "clean_return_url": "https://lean2llm.com/#library",
+          "session_survived_reload": true
+        },
+        "cloud_sync": {
+          "public_demo_only": true,
+          "content_id": "0c8707a52ef3014c0c023070c4efad8177f3eede85ac7b6c09e400d3168dc976",
+          "title": "Two steps, one identity",
+          "local_records_before_sync": 1,
+          "push_success_message": "Your library was synced to your private cloud account.",
+          "retrieved_records": 1,
+          "pull_success_message": "Retrieved 1 private cloud proofs. Imported checks require local verification.",
+          "local_records_after_reload": 1,
+          "same_content_id_preserved": true,
+          "existing_local_record_merged": true,
+          "local_records_deleted": false,
+          "clean_device_restoration_tested": false
+        },
+        "fresh_lean_check": {
+          "verified": true,
+          "theorem": "paired_steps_identity",
+          "browser_reported_elapsed_ms": 490,
+          "axioms_reported": [],
+          "scope": "Fresh browser kernel check of the preserved local public demo after cloud retrieval."
+        }
       }
     ]
   },
@@ -256,8 +301,9 @@
     "proof_library_opened": true,
     "local_records_preserved_after_reload": 1,
     "private_cloud_sign_in_ui_configured": true,
-    "authenticated_flow_verified": false,
-    "sign_in_delivery_verified": true
+    "authenticated_flow_verified": true,
+    "sign_in_delivery_verified": true,
+    "authenticated_session_survived_reload": true
   },
   "helper_permissions": {
     "migration_path": "supabase/migrations/20261022203951_restrict_auto_rls_helper_execute.sql",
@@ -302,7 +348,7 @@
     "scope": "Supabase dashboard Security Advisor schema linter."
   },
   "auth_callback_implementation": {
-    "status": "deployed; credential-free recovery and library return verified; fresh live email callback pending",
+    "status": "deployed and verified through a fresh authorized email callback; authenticated demo sync and retrieval passed",
     "redirect_path": "/auth/callback",
     "eager_client_preserved": true,
     "awaits_sdk_initialize_and_get_session": true,
@@ -318,7 +364,7 @@
     },
     "production_build_passed": true,
     "new_callback_deployed": true,
-    "new_callback_live_email_test_verified": false,
+    "new_callback_live_email_test_verified": true,
     "production_redirect_allowed": true,
     "existing_redirect_allowlist_pattern": "https://lean2llm.com/**",
     "production_auth_configuration_changed": false,

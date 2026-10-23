@@ -1,4 +1,4 @@
-# Lean2LLM paper
+# Bring Your Own Body
 
 Editable source: `main.tex`. The bibliography is embedded, so the manuscript is a standalone LaTeX file suitable for an ordinary PDFLaTeX or Tectonic build.
 
@@ -8,7 +8,7 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 python3 package.py
 ```
 
-The author-facing title is **Lean2LLM: Rechecked Proof Search and Portable Proof Storage for Lean**. The author is Octavia Sulea; the contact address is octavia@octav.ai. The AI assistance statement documents drafting, implementation, and verification assistance.
+The title is **Bring Your Own Body**. The author is Octavia Sulea; the contact address is octavia@octav.ai. The AI assistance statement documents drafting, implementation, and verification assistance. `citation.bib` provides the draft's BibTeX citation using the project's stable PDF URL.
 
 This manuscript describes the public bridge and its storage extension. It does not draw on unpublished mathematical examples or private drafts. It attributes the underlying formalization in the certificate example to the upstream project.
 
